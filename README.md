@@ -1,2 +1,8 @@
 # dotfiles
-A set of vim, zsh, git configuration files
+
+Requirements
+------------
+
+Set zsh as your login shell:
+
+    chsh -s $(which zsh)
