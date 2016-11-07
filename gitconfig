@@ -1,0 +1,59 @@
+[user]
+	name = {{ git_user_name }}
+	email = {{ git_user_email }}
+[core]
+	autocrlf = input
+	safecrlf = true
+	excludesfile = $HOME/.gitignore_global
+[alias]
+	up = !(git add . && git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+	in = "!git remote update -p; git log ..@{u}"
+	out = log @{u}..
+	addremove = !git add . && git ls-files --deleted | xargs --no-run-if-empty git rm
+	unstage = reset HEAD --
+	backup = !file=../`git describe`.tar && echo \"Creating `readlink -f $file`\" && tar cf $file .
+	st = status -sb
+	ci = commit
+	co = checkout
+	br = branch
+	bra = branch -a
+	chp = cherry-pick
+	pr = pull --rebase
+	bl = blame -b -w
+	cia = commit --amend
+	lg = log --pretty=format:'%h was %an, %ar, message: %s' --graph
+	logex = log --graph --abbrev-commit --decorate --date=relative
+	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	who = shortlog -s --
+	spull = !git pull && git submodule sync --recursive && git submodule update --init --recursive
+	spush = push --recurse-submodules=on-demand
+	spull-branch = !sh -c 'git submodule update --recursive --remote && git submodule foreach "git checkout $1 && git pull origin $1"' -
+	co-recurse = !sh -c 'git checkout $1 && git submodule update --recursive' -
+	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+	oops = git commit --amend --no-edit
+[color]
+	ui = true
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[status]
+	submoduleSummary = true
+	showUntrackedFiles = all
+[diff]
+	submodule = log
+[pull]
+	rebase = preserve
