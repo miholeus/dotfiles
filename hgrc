@@ -1,0 +1,28 @@
+# This is a Mercurial configuration file.
+[ui]
+username = {{ hg_user_name }}
+email = {{ hg_user_email }}
+
+[extensions]
+color =
+graphlog =
+#alias =
+purge =
+shelve =
+extdiff =
+transplant =
+
+[extdiff]
+cmd.icdiff=~/.hg/scripts/hg-icdiff-wrapper
+
+[color]
+status.modified = magenta bold underline red_background
+status.added = green bold
+status.removed = red bold blue_background
+status.deleted = cyan bold underline
+status.unknown = blue bold underline
+status.ignored = black bold
+
+[alias]
+llog = log --limit 10
+shortlog = !hg log --template "{author|person}\n" | sort | uniq -c | sort -nr
