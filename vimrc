@@ -91,3 +91,6 @@ nnoremap <silent> <bs> <C-w><Left>
 let g:bufExplorerDisableDefaultKeyMapping=1
 let g:bufExplorerShowRelativePath=1
 nnoremap <leader>b :BufExplorer<CR>
+
+" Включение/отключение подсветки
+nnoremap <F3> :set hlsearch!<CR>
