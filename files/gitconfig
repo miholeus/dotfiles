@@ -4,7 +4,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
 	up = !(git add . && git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	in = "!git remote update -p; git log ..@{u}"
