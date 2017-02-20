@@ -9,5 +9,6 @@ install:
     - pip install ansible
 script:
     - rm -rf ~/.gitconfig
+    - rm -rf ~/.zshrc
     - git clone https://github.com/miholeus/dotfiles.git /var/tmp/dotfiles
     - make
