@@ -1,0 +1,7 @@
+---
+language: python
+
+script:
+ - rm -rf ~/.gitconfig
+ - git clone https://github.com/miholeus/dotfiles.git /var/tmp/dotfiles
+ - make
