@@ -1,2 +1,2 @@
 install_dotfiles:
-	ansible-playbook dotfiles.yml -l local -e curdir=$(pwd)
+	ansible-playbook dotfiles.yml -l local -e curdir=$(CURDIR)
