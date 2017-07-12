@@ -57,3 +57,25 @@ alias blackfire.restart="blackfire.stop && blackfire.start"
 alias rabbitmq.queues="~/.rabbitmq/queues.sh"
 alias rabbitmq.start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist"
 alias rabbitmq.stop="rabbitmqctl stop && launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist"
+
+# git
+alias gn="git-number"
+alias gb="gn -c git blame"
+alias ge="gn -c $EDITOR"
+alias ga="gn add"
+alias gr="gn -c git reset"
+alias gap="EDITOR='$EDITOR -w' gn add -p"
+alias gd="gn -c git diff -b -w --ignore-blank-lines"
+alias gds="gd --staged"
+alias gc="gn -c git checkout"
+alias gcf="git flow feature checkout"
+alias gl="gn -c git log -w -b -p --ignore-blank-lines"
+alias gls="git log --stat"
+alias cm="EDITOR='$EDITOR -w' git commit"
+alias grb="git stash save 'REBASE' && EDITOR='$EDITOR -w' git rebase -i"
+alias grbc="EDITOR='$EDITOR -w' git rebase --continue"
+
+gcd() {
+        test -n "$1" && cd $(dirname $(git list $1))
+    }
+
