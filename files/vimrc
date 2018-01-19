@@ -109,3 +109,16 @@ let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+" Add golint support Run :Lint
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+" Run golint on save
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
+" Toggle fold of current position
+nnoremap <S-c> za
+
+" Like vim-vinegar.
+" nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+
+" Move up a directory using "-" like vim-vinegar (usually "u" does this).
+" nmap <buffer> <expr> - g:NERDTreeMapUpdir
