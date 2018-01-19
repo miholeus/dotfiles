@@ -1,8 +1,8 @@
 alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.restart='nginx.stop && nginx.start'
-alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
-alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php71.plist"
+alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php71.plist"
 alias php-fpm.restart='php-fpm.stop && php-fpm.start'
 alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
@@ -47,6 +47,7 @@ alias ice='hg icdiff --ch .'
 
 alias vic="vim -c 'execute \"silent !echo \" . &fileencoding | q'"
 alias ports='netstat -tulanp tcp'
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # blackfire
 alias blackfire.stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.blackfire-agent.plist"
@@ -74,8 +75,13 @@ alias gls="git log --stat"
 alias cm="EDITOR='$EDITOR -w' git commit"
 alias grb="git stash save 'REBASE' && EDITOR='$EDITOR -w' git rebase -i"
 alias grbc="EDITOR='$EDITOR -w' git rebase --continue"
+alias gbr="git br"
+alias gbra="git bra"
+alias gsync="git fetch -p"
 
 gcd() {
         test -n "$1" && cd $(dirname $(git list $1))
     }
 
+# BFG
+alias bfg="java -jar /usr/local/bin/bfg-1.12.16.jar"
