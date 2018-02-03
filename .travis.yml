@@ -10,6 +10,7 @@ install:
 script:
     - rm -rf ~/.gitconfig
     - rm -rf ~/.zshrc
+    - rm -rf ~/.bash_profile
     - git clone https://github.com/miholeus/dotfiles.git /var/tmp/dotfiles
     - cp host_vars/{127.0.0.1.dist,127.0.0.1}
     - make
