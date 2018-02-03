@@ -60,8 +60,6 @@ alias rabbitmq.start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbit
 alias rabbitmq.stop="rabbitmqctl stop && launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist"
 
 
-# github alias
-# alias git=hub
 # git
 alias gn="git-number"
 alias gb="gn -c git blame"
