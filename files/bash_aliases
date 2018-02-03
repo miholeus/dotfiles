@@ -61,7 +61,7 @@ alias rabbitmq.stop="rabbitmqctl stop && launchctl unload ~/Library/LaunchAgents
 
 
 # github alias
-alias git=hub
+# alias git=hub
 # git
 alias gn="git-number"
 alias gb="gn -c git blame"
