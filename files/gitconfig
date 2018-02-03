@@ -25,6 +25,8 @@
 	logex = log --graph --abbrev-commit --decorate --date=relative
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	mine = log --first-parent
 	who = shortlog -s --
 	spull = !git pull && git submodule sync --recursive && git submodule update --init --recursive
 	spush = push --recurse-submodules=on-demand
@@ -33,19 +35,30 @@
 	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
 	oops = git commit --amend --no-edit
 	please = push --force-with-lease
-	it = !git init && git commit -m “root” --allow-empty
+	it = !git init && git commit -m "root" --allow-empty
 	stsh = stash --keep-index
 	staash = stash --include-untracked
 	staaash = stash --all
 	merc = merge --no-ff
 	branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	dlog = !zsh -c 'git shortlog --after=$1 -s -n' -
+	iscmerge = merge -s recursive -Xignore-space-change
+	prb = pull -v --rebase
+	fork-point = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --abbrev-commit --first-parent "${1:-dev}") <(git rev-list --abbrev-commit --first-parent "${2:-HEAD}") | head -1' -
+	fork-point-lg = !zsh -c 'git lg1 | grep `git fork-point`'
+	bd = !zsh -c 'git diff -b -w --ignore-blank-lines  `git fork-point` HEAD'
+	bl = !zsh -c 'git log -w -b -p --ignore-blank-lines `git fork-point` HEAD'
+	ffs = flow feature start
+	fff = !zsh -c 'git flow feature finish'
+	ffc = flow feature checkout
 [color]
 	ui = true
 [push]
 	default = simple
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
