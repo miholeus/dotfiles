@@ -11,3 +11,5 @@
         template: src=files/hgrc dest=~/.hgrc
       - name: Install Git config
         template: src=files/gitconfig dest=~/.gitconfig
+      - name: Install github completion
+        template: src=files/completions/hub.zsh_completion dest=~/.zsh/completions/_hub
