@@ -60,7 +60,7 @@ alias rabbitmq.start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbit
 alias rabbitmq.stop="rabbitmqctl stop && launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist"
 
 # github
-alias git=hub
+#alias git=hub
 # git
 alias gn="git-number"
 alias gb="gn -c git blame"
@@ -81,9 +81,9 @@ alias gbr="git br"
 alias gbra="git bra"
 alias gsync="git fetch -p"
 
-gcd() {
-        test -n "$1" && cd $(dirname $(git list $1))
-    }
+#gcd() {
+#        test -n "$1" && cd $(dirname $(git list $1))
+#    }
 
 # BFG
 alias bfg="java -jar /usr/local/bin/bfg-1.12.16.jar"
@@ -120,3 +120,4 @@ dcleanlaradockfunction()
 # associate the above function with an alias
 # so can recall/lookup by typing 'alias'
 alias dcleanlaradock=dcleanlaradockfunction
+alias djtemplate="cookiecutter https://github.com/pydanny/cookiecutter-django"
