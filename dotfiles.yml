@@ -15,3 +15,5 @@
         file: path=~/.zsh/completions state=directory mode=0755
       - name: Install github completion
         template: src=files/completions/hub.zsh_completion dest=~/.zsh/completions/_hub
+      - name: Curl format
+        template: src=files/curl-format.txt dest=~/.curl-format.txt

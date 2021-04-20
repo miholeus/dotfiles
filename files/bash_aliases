@@ -121,3 +121,6 @@ dcleanlaradockfunction()
 # so can recall/lookup by typing 'alias'
 alias dcleanlaradock=dcleanlaradockfunction
 alias djtemplate="cookiecutter https://github.com/pydanny/cookiecutter-django"
+
+alias k=kubectl
+alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
