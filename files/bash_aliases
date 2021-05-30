@@ -88,6 +88,12 @@ alias gsync="git fetch -p"
 # BFG
 alias bfg="java -jar /usr/local/bin/bfg-1.12.16.jar"
 
+# Docker
+alias d=docker
+alias dco="docker compose"
+alias up="docker compose up -d"
+alias down="docker compose down"
+
 dclean() {
     processes=`docker ps -q -f status=exited`
     if [ -n "$processes" ]; then
