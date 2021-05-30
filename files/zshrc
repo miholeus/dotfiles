@@ -78,8 +78,8 @@ export CRMREPO="/var/www/work/crm/repo"
 
 #export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source ~/.bash_aliases
 source ~/.profile
+source ~/.bash_aliases
 
 PERL_MB_OPT="--install_base \"/Users/miholeus/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/miholeus/perl5"; export PERL_MM_OPT;
