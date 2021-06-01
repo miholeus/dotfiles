@@ -75,11 +75,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 #export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source ~/.profile
-source ~/.bash_aliases
 
-PERL_MB_OPT="--install_base \"/Users/miholeus/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/miholeus/perl5"; export PERL_MM_OPT;
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 #source ~/.git-subrepo/.rc
 
@@ -95,20 +91,5 @@ autoload -U compinit && compinit
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e "${HOME}/.zprofile" && source ${HOME}/.zprofile
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/miholeus/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/miholeus/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/miholeus/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/miholeus/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+source ~/.bash_aliases
 
-export EDITOR=vim
-export VISUAL="$EDITOR"
