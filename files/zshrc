@@ -77,6 +77,10 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# M1 chip
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+fi
 #source ~/.git-subrepo/.rc
 
 bindkey -e
